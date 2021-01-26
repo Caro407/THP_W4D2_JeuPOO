@@ -29,7 +29,8 @@ class Game
     @enemies.each do |enemy|
       remaining_bots -= 1 if enemy.life_points <= 0
     end
-    return remaining_life, remaining_bots
+    puts "Il te reste #{remaining_life} points de vie et #{remaining_bots} ennemis à tuer ! Haut les coeurs !"
+    return remaining_bots
   end
 
   def show_menu(enemies) # Cette méthode prend en entrée un tableau.
@@ -59,7 +60,7 @@ class Game
     elsif (0..3).include?(player_action.to_i)
       chosen_target = enemies[player_action.to_i]
       @human_player.attacks(chosen_target)
-      kill_player(chosen_target) if chosen_target.life_points <= 0 #end?
+      self.kill_player(chosen_target) if chosen_target.life_points <= 0 #end?
     end
   end
 
@@ -74,7 +75,7 @@ class Game
     puts "\n"
 
     if @human_player.life_points > 0
-      puts "BRAVO #{player1.name} ! Tu as gagné !!"
+      puts "BRAVO #{@human_player.name} ! Tu as gagné !!"
     else
       @human_player.life_points <= 0
       puts "Loseeeer ! Tu as perdu !"
