@@ -30,7 +30,6 @@ class Player
   def compute_damage
     return rand(1..6)
   end
-
 end
 
 class HumanPlayer < Player
@@ -82,9 +81,18 @@ class HumanPlayer < Player
     puts "s - chercher à se soigner"
     puts "\n"
     puts "attaquer un joueur en vue :"
-    puts "0 - #{player_to_attack1.name} a #{player_to_attack1.life_points} points de vie."
-    puts "1 - #{player_to_attack2.name} a #{player_to_attack2.life_points} points de vie."
+    if player_to_attack1.life_points > 0
+      puts "0 - #{player_to_attack1.name} a #{player_to_attack1.life_points} points de vie."
+    else
+      puts "0 - #{player_to_attack1.name} a été tué(e)."
+    end
+    if player_to_attack2.life_points > 0
+      puts "1 - #{player_to_attack2.name} a #{player_to_attack2.life_points} points de vie."
+    else
+      puts "1 - #{player_to_attack2.name} a été tué(e)."
+    end
 
+    print '> '
     player_action = gets.chomp
     case player_action
     when "a"

@@ -11,7 +11,7 @@ print "|"
 print "BIENVENUE SUR LE JEU 'ILS VEULENT TOUS MA POO' !"
 puts "|"
 print "|"
-print "Le but du jeu est d'être le dernier survivant !"
+print "Le but du jeu est d'être le dernier survivant ! "
 puts "|"
 puts "-" * 50
 
@@ -30,6 +30,12 @@ list_players << enemy1
 enemy2 = Player.new("Orane")
 list_players << enemy2
 
+puts "Bienvenue parmi nous #{player1.name} !\n\n"
+puts "Tu vas devoir affronter :"
+list_players.each do |enemy|
+  puts "- #{enemy.name}"
+end
+puts "Ce sont de terribles monstres assoiffés de sang !\n\n"
 # ---- COMBAT
 
 while player1.life_points > 0 && (enemy1.life_points > 0 || enemy2.life_points > 0)
@@ -45,8 +51,8 @@ puts "La partie est finie !"
 puts "\n"
 
 if player1.life_points > 0
-  puts "BRAVO ! Tu as gagné !!"
+  puts "BRAVO #{player1.name} ! Tu as gagné !!"
 else
-    player1.life_points <= 0
-    puts "Loseeeer ! Tu as perdu !"
+  player1.life_points <= 0
+  puts "Loseeeer ! Tu as perdu !"
 end
