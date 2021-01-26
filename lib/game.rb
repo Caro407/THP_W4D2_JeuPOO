@@ -10,7 +10,7 @@ class Game
     @human_player = HumanPlayer.new(hero_name)
   end
 
-  def kill_player(enemy_killed) #Sur qui elle s'appelle celle-là ?
+  def kill_player(enemy_killed) # Cette méthode s'appelle sur une Game.
     @enemies.each_with_index do |enemy, index|
       @enemies.delete_at(index) if enemy == enemy_killed
     end
@@ -22,7 +22,6 @@ class Game
   end
 
   def show_players # Cette méthode s'appelle sur une Game.
-    #@human_player.show_state
     remaining_life = @human_player.life_points
     remaining_bots = @enemies.length
 

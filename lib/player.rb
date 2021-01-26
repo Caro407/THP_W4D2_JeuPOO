@@ -11,7 +11,7 @@ class Player
   end
 
   def gets_damage(nb_of_damage_taken)
-    @life_points = @life_points - nb_of_damage_taken #Quelle est la différence ici entre @lp & self.hp ?
+    @life_points = @life_points - nb_of_damage_taken
     if @life_points <= 0
       puts "Le joueur #{@name} a été tué !"
     else
@@ -41,7 +41,7 @@ class HumanPlayer < Player
     @weapon_level = 1
   end
 
-  def show_state # Pourquoi ça marche sans que j'ai besoin de mettre un "super" ?
+  def show_state
     puts "#{@name} a #{@life_points} points de vie et une arme de niveau #{@weapon_level}.\n\n"
   end
 
